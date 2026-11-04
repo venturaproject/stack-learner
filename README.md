@@ -111,6 +111,7 @@ HTTP/persistence adapters. Current details and decisions are documented here:
 - [Product scope and permissions](doc/product.md)
 - [Backend architecture](doc/architecture.md)
 - [Architecture reference and current trade-offs](doc/architecture-reference.md)
+- [Frontend architecture and Clean Architecture conventions](doc/frontend-architecture.md)
 - [DDD, hexagonal architecture, and SOLID](doc/solid-ddd-hexagonal.md)
 
 ## License

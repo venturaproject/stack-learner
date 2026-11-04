@@ -11,6 +11,7 @@ documentation. For development setup, see the [main README](../README.md).
 - [Product scope](product.md) — features, roles, permissions, and planned work.
 - [Architecture](architecture.md) — backend layers and organization.
 - [Architecture reference](architecture-reference.md) — current decisions and trade-offs.
+- [Frontend architecture and design conventions](frontend-architecture.md) — Clean Architecture boundaries, responsibilities, and review criteria for the web app.
 - [DDD, hexagonal architecture, and SOLID](solid-ddd-hexagonal.md) — design principles and criteria.
 
 ## Publishing
