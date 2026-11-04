@@ -1,64 +1,62 @@
 <p align="center">
-  <img src="doc/header.png" alt="Learner — plataforma de aprendizaje multi-organización" width="100%" />
+  <img src="doc/header.png" alt="Learner — multi-organization learning platform" width="100%" />
 </p>
 
 <h1 align="center">Learner</h1>
 
 <p align="center">
-  Plataforma de aprendizaje para academias, centros de formación y equipos de empresa.
+  A learning platform for academies, training centers, and company teams.
 </p>
 
 <p align="center">
-  <a href="https://venturaproject.github.io/stack-learner/">Sitio del proyecto</a> ·
-  <a href="doc/README.md">Documentación</a> ·
-  <a href="doc/product.md">Producto</a> ·
-  <a href="doc/architecture.md">Arquitectura</a> ·
-  <a href="doc/architecture-reference.md">Guía técnica</a> ·
+  <a href="https://venturaproject.github.io/stack-learner/">Project website</a> ·
+  <a href="doc/README.md">Documentation</a> ·
+  <a href="doc/product.md">Product</a> ·
+  <a href="doc/architecture.md">Architecture</a> ·
+  <a href="doc/architecture-reference.md">Technical guide</a> ·
   <a href="https://github.com/venturaproject/stack-learner">GitHub</a>
 </p>
 
 ---
 
-## Qué es Learner
+## What is Learner?
 
-Learner es un LMS **multi-organización** para crear cursos, organizar cohortes,
-acompañar el progreso del alumnado y evaluar entregas. El backend y la aplicación web
-comparten una API; la autorización y el aislamiento por organización se validan en el
-servidor.
+Learner is a **multi-organization LMS** for creating courses, organizing cohorts,
+supporting student progress, and reviewing submissions. The backend and web application
+share an API; authorization and organization boundaries are enforced by the server.
 
-El proyecto está en desarrollo activo. El alcance implementado y las funciones que aún
-están pendientes se detallan en [doc/product.md](doc/product.md).
+The project is under active development. See [doc/product.md](doc/product.md) for the
+implemented scope and planned features.
 
-## Funcionalidades
+## Features
 
-- Organizaciones y membresías con roles de administrador, docente y estudiante.
-- Cursos con módulos y lecciones ordenables, y estados de borrador/publicado.
-- Cohortes con docentes asignados, matrículas y registro histórico de bajas.
-- Progreso individual con desbloqueo secuencial de lecciones.
-- Actividades `task`: entregas de texto y/o enlace, intentos con historial, cola de
-  revisión, nota de 0 a 100 y retroalimentación.
-- Interfaz web responsive, disponible en español e inglés.
+- Organizations and memberships with administrator, instructor, and student roles.
+- Courses with ordered modules and lessons, and draft/published states.
+- Cohorts with assigned instructors, enrollments, and withdrawal history.
+- Individual progress with sequential lesson unlocking.
+- `task` activities: text and/or link submissions, attempts with history, a review queue,
+  scores from 0 to 100, and feedback.
+- Responsive web interface, available in Spanish and English.
 
-Las invitaciones por correo, el alta de cuentas desde la plataforma y la exportación de
-progreso siguen pendientes.
+Email invitations, account creation from the platform, and progress exports are not yet
+available.
 
-El proyecto parte de una plantilla técnica y todavía conserva algunos módulos
-heredados que no pertenecen al alcance LMS; se irán sustituyendo o retirando de forma
-gradual.
+The project started from a technical template and still contains some inherited modules
+outside the LMS scope; these will be replaced or removed over time.
 
 ## Stack
 
-| Área | Tecnologías |
+| Area | Technologies |
 | --- | --- |
 | API | Go 1.27 · Gin · GORM |
-| Persistencia | PostgreSQL 16 · migraciones SQL |
-| Cache y servicios | Redis 7 |
+| Persistence | PostgreSQL 16 · SQL migrations |
+| Cache and services | Redis 7 |
 | Web | React · TypeScript · Vite · Tailwind CSS |
-| Entorno local | Docker Compose · Nginx |
+| Local environment | Docker Compose · Nginx |
 
-## Empezar en desarrollo
+## Get started
 
-Requisitos: Docker y Docker Compose.
+Requirements: Docker and Docker Compose.
 
 ```bash
 make setup
@@ -67,27 +65,27 @@ make migrate
 make seed
 ```
 
-Abre [http://localhost:8092/login](http://localhost:8092/login). El usuario local creado
-por `make seed` es `admin@example.com` y la contraseña es `admin1234` (**solo para
-desarrollo**). Tras iniciar sesión, entra en **Cursos y formación** y crea una
-organización para empezar.
+Open [http://localhost:8092/login](http://localhost:8092/login). The local account
+created by `make seed` is `admin@example.com` with password `admin1234` (**for development
+only**). After signing in, open **Courses & Learning** and create an organization to get
+started.
 
-| Servicio | Dirección local |
+| Service | Local address |
 | --- | --- |
-| Aplicación (proxy Nginx) | `http://localhost:8092` |
-| Frontend de desarrollo | `http://localhost:5174` |
+| Application (Nginx proxy) | `http://localhost:8092` |
+| Development frontend | `http://localhost:5174` |
 | API | `http://localhost:8011/api` |
-| Salud de la API | `http://localhost:8011/api/health` |
+| API health check | `http://localhost:8011/api/health` |
 | PostgreSQL | `localhost:5445` |
 | Redis | `localhost:6380` |
 
-`make up` aplica las migraciones pendientes al iniciar la API; `make migrate` permite
-ejecutarlas explícitamente. No uses las credenciales locales en un despliegue real y
-cambia `JWT_SECRET` antes de exponer el servicio.
+`make up` applies pending migrations when the API starts; `make migrate` runs them
+explicitly. Do not use local credentials in production, and change `JWT_SECRET` before
+exposing the service.
 
-## Comprobaciones
+## Checks
 
-Los chequeos del backend se ejecutan en el contenedor:
+Run backend checks in the container:
 
 ```bash
 make test
@@ -97,7 +95,7 @@ make staticcheck
 make arch-lint
 ```
 
-Frontend:
+Frontend checks:
 
 ```bash
 docker compose -f compose.dev.yml exec frontend pnpm build
@@ -105,16 +103,16 @@ docker compose -f compose.dev.yml exec frontend pnpm lint
 docker compose -f compose.dev.yml exec frontend pnpm test
 ```
 
-## Arquitectura y documentación
+## Architecture and documentation
 
-El backend sigue una estructura modular con límites de dominio, casos de uso y
-adaptadores HTTP/persistencia. Los detalles y las decisiones vigentes están en:
+The backend is organized into modules with domain boundaries, use cases, and
+HTTP/persistence adapters. Current details and decisions are documented here:
 
-- [Alcance y permisos del producto](doc/product.md)
-- [Arquitectura del backend](doc/architecture.md)
-- [Referencia técnica y compromisos actuales](doc/architecture-reference.md)
-- [DDD, hexagonal y SOLID](doc/solid-ddd-hexagonal.md)
+- [Product scope and permissions](doc/product.md)
+- [Backend architecture](doc/architecture.md)
+- [Architecture reference and current trade-offs](doc/architecture-reference.md)
+- [DDD, hexagonal architecture, and SOLID](doc/solid-ddd-hexagonal.md)
 
-## Licencia
+## License
 
-Todavía no se ha definido una licencia para el repositorio.
+A license has not yet been selected for this repository.
