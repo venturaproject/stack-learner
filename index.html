@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10100e">
+  <meta name="description" content="Learner es una plataforma de aprendizaje multi-organización para academias, centros de formación y equipos de empresa.">
+  <title>Learner — aprender, enseñar y crecer</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--bg:#10100e;--panel:#191916;--line:#343127;--text:#f4f1e8;--muted:#b1aea3;--accent:#C9A436;--accent2:#e2c45c;--mono:'DM Mono',monospace;--sans:'Manrope',sans-serif}
+    [data-theme="light"]{color-scheme:light;--bg:#f7f6f1;--panel:#fff;--line:#e4dfd0;--text:#211e16;--muted:#706b5e;--accent:#9b7917;--accent2:#765c0d}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 48px));margin:auto}
+    header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center}.nav{display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px;font-size:19px;font-weight:800;letter-spacing:-1px}.brand-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--accent);color:#15130c;font:500 17px var(--mono)}.links{display:flex;gap:22px;align-items:center;color:var(--muted);font-size:12px}.links a:hover{color:var(--text)}.github,.theme-toggle{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:5px;padding:9px 12px;font:11px var(--mono);cursor:pointer}.theme-toggle:hover,.github:hover{border-color:var(--accent)}
+    .hero{padding:96px 0 80px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:620px;height:620px;right:-90px;top:-30px;background:radial-gradient(circle,#C9A43616,transparent 68%);pointer-events:none}.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;z-index:1}.eyebrow,.kicker{font:10px var(--mono);letter-spacing:1.8px;text-transform:uppercase;color:var(--accent2);display:flex;align-items:center;gap:10px}.eyebrow:before{content:"";width:23px;height:1px;background:var(--accent)}h1{font-size:clamp(48px,6.5vw,76px);letter-spacing:-.075em;line-height:1;margin:24px 0 22px;font-weight:800}h1 span{color:var(--accent)}.lead{font-size:15px;line-height:1.85;color:var(--muted);max-width:510px}.actions{display:flex;gap:12px;margin-top:29px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;padding:13px 18px;border-radius:5px;font-size:12px;font-weight:800;transition:transform .15s,border-color .15s}.button:hover{transform:translateY(-2px)}.primary{background:var(--accent);color:#15130c}.secondary{border:1px solid var(--line)}.secondary:hover{border-color:var(--accent)}
+    .preview{background:var(--panel);border:1px solid var(--line);border-radius:8px;box-shadow:0 24px 85px #0005;overflow:hidden}.preview-bar{height:43px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 15px;gap:7px}.dot{width:8px;height:8px;border-radius:50%;background:#d46c50}.dot:nth-child(2){background:#d3a73a}.dot:nth-child(3){background:#8b9e5b}.preview-title{font:10px var(--mono);color:var(--muted);margin-left:8px}.preview-org{margin-left:auto;color:var(--accent2);font:9px var(--mono);letter-spacing:1px}.preview-content{padding:21px}.preview-label{font:10px var(--mono);color:var(--muted);letter-spacing:1px;text-transform:uppercase}.course-card{margin-top:12px;padding:16px;border:1px solid var(--line);border-radius:6px;background:var(--bg)}.course-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.course-heading strong{font-size:14px}.badge{padding:4px 8px;border:1px solid #C9A43655;border-radius:999px;color:var(--accent2);font:9px var(--mono)}.course-subtitle{margin-top:4px;color:var(--muted);font-size:10px}.lesson-list{display:grid;gap:0;margin-top:16px}.lesson{display:flex;align-items:center;gap:11px;padding:9px 0;border-top:1px solid var(--line);font-size:10px}.lesson:first-child{border-top:0}.lesson-state{display:grid;flex:0 0 19px;height:19px;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--muted);font:9px var(--mono)}.lesson.done .lesson-state{border-color:var(--accent);background:var(--accent);color:#15130c}.lesson.current .lesson-state{border-color:var(--accent);color:var(--accent2)}.lesson small{margin-left:auto;color:var(--muted);font:9px var(--mono)}.preview-foot{border-top:1px solid var(--line);padding:12px 19px;font:9px var(--mono);color:var(--muted);display:flex;justify-content:space-between;gap:12px}.preview-foot span:last-child{color:var(--accent2)}
+    .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:19px 0}.strip .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--muted);font:10px var(--mono);letter-spacing:1px;text-transform:uppercase}.strip strong{color:var(--text);font-weight:500}
+    section.content{padding:84px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:30px}h2{font-size:clamp(30px,4vw,44px);letter-spacing:-.06em;line-height:1.12;margin:12px 0 0;font-weight:800}.section-note{max-width:350px;color:var(--muted);font-size:12px;line-height:1.8}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{padding:22px;background:var(--panel);border:1px solid var(--line);border-radius:6px;min-height:162px}.icon{font:10px var(--mono);letter-spacing:1px;color:var(--accent2);margin-bottom:22px}.card h3{font-size:14px;margin:0 0 9px}.card p{font-size:11px;line-height:1.8;color:var(--muted);margin:0}.architecture{display:grid;grid-template-columns:1fr 1fr;gap:12px}.arch-card{padding:22px;background:var(--panel);border:1px solid var(--line);border-radius:6px}.arch-card h3{margin:0 0 9px;font-size:14px}.arch-card p{margin:0;color:var(--muted);font-size:11px;line-height:1.8}.arch-card code{font:10px var(--mono);color:var(--accent2)}
+    .cta{padding:28px;background:linear-gradient(120deg,var(--panel),#C9A43616);border:1px solid var(--line);border-radius:7px;display:flex;align-items:center;justify-content:space-between;gap:24px}.cta p{color:var(--muted);font-size:12px;line-height:1.7;margin:8px 0 0}.cta .actions{margin:0;flex-shrink:0}.cta h2{font-size:25px;margin:0}.cta-section{padding-top:0!important;padding-bottom:90px!important}.status{margin:15px 0 0;color:var(--muted);font-size:11px;line-height:1.8}.status strong{color:var(--text)}
+    footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font:10px var(--mono)}footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer a:hover{color:var(--accent2)}
+    @media(max-width:760px){.wrap{width:min(100% - 36px,1120px)}.links{gap:12px}.links>a:not(.github){display:none}.hero{padding:68px 0 60px}.hero-grid{grid-template-columns:1fr;gap:34px}h1{font-size:58px}.lead{font-size:14px}.preview{max-width:600px}.strip .wrap{justify-content:flex-start;gap:12px 20px}.section-head{display:block}.section-note{margin-top:13px}.grid{grid-template-columns:1fr}.card{min-height:auto}.icon{margin-bottom:16px}.architecture{grid-template-columns:1fr}.cta{align-items:flex-start;flex-direction:column}.cta .actions{flex-wrap:wrap}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header><nav class="wrap nav" aria-label="Navegación principal">
+    <a class="brand" href="#inicio" aria-label="Learner, inicio"><span class="brand-mark" aria-hidden="true">L</span>Learner</a>
+    <div class="links"><a href="#funcionalidades">Funcionalidades</a><a href="#arquitectura">Arquitectura</a><a href="#empezar">Empezar</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar a tema claro">☼ Claro</button><a class="github" href="https://github.com/venturaproject/stack-learner">GitHub ↗</a></div>
+  </nav></header>
+  <main id="inicio">
+    <section class="hero"><div class="wrap hero-grid">
+      <div><div class="eyebrow">LMS multi-organización</div>
+        <h1>Aprender mejor.<br>Crecer <span>juntos.</span></h1>
+        <p class="lead">Una plataforma para crear cursos, organizar cohortes y acompañar el progreso de estudiantes en academias, centros de formación y equipos de empresa.</p>
+        <div class="actions"><a class="button primary" href="https://github.com/venturaproject/stack-learner#empezar-en-desarrollo">Empezar&nbsp; ↗</a><a class="button secondary" href="https://github.com/venturaproject/stack-learner/tree/main/doc">Explorar documentación</a></div>
+      </div>
+      <div class="preview" aria-label="Vista ilustrativa de un curso en Learner">
+        <div class="preview-bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="preview-title">learner · ruta de aprendizaje</span><span class="preview-org">CURSO</span></div>
+        <div class="preview-content">
+          <div class="preview-label">Mi aprendizaje</div>
+          <div class="course-card">
+            <div class="course-heading"><strong>Fundamentos del curso</strong><span class="badge">En progreso</span></div>
+            <div class="course-subtitle">Lecciones organizadas en una ruta secuencial</div>
+            <div class="lesson-list">
+              <div class="lesson done"><span class="lesson-state">✓</span><span>Introducción</span><small>COMPLETADA</small></div>
+              <div class="lesson current"><span class="lesson-state">2</span><span>Conceptos principales</span><small>DESBLOQUEADA</small></div>
+              <div class="lesson"><span class="lesson-state">3</span><span>Actividad práctica</span><small>BLOQUEADA</small></div>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-heading"><strong>Actividad práctica</strong><span class="badge">Entrega</span></div>
+            <div class="course-subtitle">Responde con texto o comparte un enlace · revisión docente</div>
+          </div>
+        </div>
+        <div class="preview-foot"><span>CURSOS · COHORTES · PROGRESO</span><span>APRENDIZAJE SECUENCIAL</span></div>
+      </div>
+    </div></section>
+    <div class="strip"><div class="wrap"><span><strong>Go · Gin</strong> · backend</span><span><strong>Multi-organización</strong> · acceso aislado</span><span><strong>Self-hosted</strong> · tu infraestructura</span><span><strong>React</strong> · interfaz web</span></div></div>
+    <section class="content" id="funcionalidades"><div class="wrap">
+      <div class="section-head"><div><div class="kicker">Una ruta clara para cada persona</div><h2>De los cursos<br>a la evaluación.</h2></div><p class="section-note">Learner conecta la gestión de contenido, cohortes, progreso y revisión de actividades en una sola plataforma.</p></div>
+      <div class="grid">
+        <article class="card"><div class="icon">01 / ORGANIZAR</div><h3>Organizaciones y roles</h3><p>Separa academias y equipos con membresías y permisos propios para administradores, docentes y estudiantes.</p></article>
+        <article class="card"><div class="icon">02 / DISEÑAR</div><h3>Cursos y contenidos</h3><p>Construye cursos con módulos y lecciones ordenables; publica la ruta cuando esté lista.</p></article>
+        <article class="card"><div class="icon">03 / ACOMPAÑAR</div><h3>Cohortes y matrículas</h3><p>Organiza grupos por curso, asigna docentes y conserva el historial de matrículas y bajas.</p></article>
+        <article class="card"><div class="icon">04 / AVANZAR</div><h3>Progreso secuencial</h3><p>El alumnado completa lecciones en orden y consulta su progreso sin acceder a contenido bloqueado.</p></article>
+        <article class="card"><div class="icon">05 / ENTREGAR</div><h3>Actividades `task`</h3><p>Recibe respuestas de texto o enlace y conserva cada intento como parte del historial del estudiante.</p></article>
+        <article class="card"><div class="icon">06 / REVISAR</div><h3>Calificación y feedback</h3><p>Administradores y docentes asignados revisan intentos, califican de 0 a 100 y dejan retroalimentación.</p></article>
+      </div>
+    </div></section>
+    <section class="content" id="arquitectura" style="padding-top:0"><div class="wrap">
+      <div class="section-head"><div><div class="kicker">Límites claros, despliegue propio</div><h2>Diseñado para<br>evolucionar.</h2></div><p class="section-note">Una aplicación web y una API organizadas como monolito modular, con validación de permisos y aislamiento en el backend.</p></div>
+      <div class="architecture">
+        <article class="arch-card"><h3>API Go</h3><p>Gin expone operaciones de organización, cursos, cohortes, progreso y evaluación. Las reglas se coordinan mediante casos de uso y dominios separados.</p></article>
+        <article class="arch-card"><h3>Aplicación React</h3><p>React y TypeScript ofrecen flujos web para administrar cursos, matrículas y cohortes, además de completar y revisar actividades.</p></article>
+        <article class="arch-card"><h3>Persistencia</h3><p>PostgreSQL guarda los datos; las migraciones SQL mantienen el esquema. Redis forma parte de los servicios de ejecución.</p></article>
+        <article class="arch-card"><h3>Despliegue</h3><p>Docker Compose levanta API, frontend, PostgreSQL, Redis y Nginx para desarrollo o despliegue self-hosted.</p></article>
+      </div>
+    </div></section>
+    <section class="content cta-section" id="empezar"><div class="wrap"><div class="cta">
+      <div><h2>Prueba Learner en local.</h2><p>Levanta el stack con Docker y crea una organización para empezar a construir cursos y cohortes.</p><p class="status"><strong>En desarrollo activo.</strong> Invitaciones por correo, creación de cuentas y exportación de progreso están pendientes.</p></div>
+      <div class="actions"><a class="button primary" href="https://github.com/venturaproject/stack-learner#empezar-en-desarrollo">Guía de inicio&nbsp; ↗</a><a class="button secondary" href="https://github.com/venturaproject/stack-learner/blob/main/doc/product.md">Alcance del producto</a></div>
+    </div></div></section>
+  </main>
+  <footer><div class="wrap"><span>Learner · Plataforma de aprendizaje multi-organización</span><span><a href="https://github.com/venturaproject/stack-learner">GitHub ↗</a>&nbsp;&nbsp; · &nbsp;&nbsp;<a href="https://github.com/venturaproject/stack-learner/tree/main/doc">Documentación</a></span></div></footer>
+  <script>
+    const button = document.getElementById('theme-toggle');
+    const storageKey = 'learner-landing-theme';
+    function setTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      const light = theme === 'light';
+      button.textContent = light ? '☾ Oscuro' : '☼ Claro';
+      button.setAttribute('aria-label', `Cambiar a tema ${light ? 'oscuro' : 'claro'}`);
+    }
+    let savedTheme = null;
+    try { savedTheme = localStorage.getItem(storageKey); } catch {}
+    setTheme(savedTheme || 'dark');
+    button.addEventListener('click', () => {
+      const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      setTheme(theme);
+      try { localStorage.setItem(storageKey, theme); } catch {}
+    });
+  </script>
+</body>
+</html>
