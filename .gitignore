@@ -1,0 +1,28 @@
+# Environment
+.env
+!.env.example
+
+# Go
+backend/tmp/
+backend/bin/
+backend/vendor/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.pnpm-store/
+
+# Docker
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Local browser inspection artifacts
+.playwright-mcp/

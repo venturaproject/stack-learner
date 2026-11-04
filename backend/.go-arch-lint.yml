@@ -1,0 +1,52 @@
+version: 3
+workdir: .
+
+allow:
+  depOnAnyVendor: true
+  deepScan: false
+
+excludeFiles:
+  - '^.*_test\.go$'
+
+components:
+  cmd: { in: cmd/** }
+  domain: { in: internal/domain/** }
+  application: { in: internal/application/** }
+  config: { in: internal/config }
+  http: { in: internal/infrastructure/http/** }
+  persistence: { in: internal/infrastructure/persistence/** }
+  cache: { in: internal/infrastructure/cache }
+  events: { in: internal/infrastructure/events }
+  console: { in: internal/infrastructure/console/** }
+  di: { in: internal/di }
+  shared: { in: internal/shared/** }
+  logger: { in: pkg/logger }
+  docs: { in: docs }
+
+deps:
+  domain:
+    mayDependOn: [domain, shared]
+  application:
+    mayDependOn: [application, domain, shared]
+  config:
+    anyVendorDeps: true
+  http:
+    mayDependOn: [http, application, domain, config, cache, shared]
+  persistence:
+    mayDependOn: [persistence, application, domain, config, events, shared]
+  cache:
+    mayDependOn: [config]
+  events:
+    anyVendorDeps: true
+  console:
+    mayDependOn: [console, config, persistence]
+  di:
+    anyProjectDeps: true
+  cmd:
+    mayDependOn: [config, persistence, console, di, logger, docs]
+  shared:
+    anyVendorDeps: true
+  logger:
+    anyVendorDeps: true
+  docs:
+    anyVendorDeps: true

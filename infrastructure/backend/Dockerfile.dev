@@ -1,0 +1,20 @@
+FROM golang:1.27-alpine
+
+RUN apk add --no-cache gcc musl-dev git
+
+# Air for hot-reload + staticcheck
+RUN go install github.com/air-verse/air@latest && \
+    go install honnef.co/go/tools/cmd/staticcheck@latest
+
+# Wrapper para ejecutar comandos de consola como: console seed, console make:user ...
+RUN printf '#!/bin/sh\nexec go run /app/cmd/console "$@"\n' > /usr/local/bin/console && \
+    chmod +x /usr/local/bin/console
+
+WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+EXPOSE 8000
+
+CMD ["air", "-c", ".air.toml"]

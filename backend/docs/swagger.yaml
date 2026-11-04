@@ -1,0 +1,1393 @@
+basePath: /api
+definitions:
+  boilerplate-learner_internal_application_auth.CreatePermissionRequest:
+    properties:
+      name:
+        type: string
+    required:
+    - name
+    type: object
+  boilerplate-learner_internal_application_auth.CreateUserRequest:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      password:
+        minLength: 8
+        type: string
+      role_ids:
+        items:
+          type: integer
+        type: array
+      status:
+        type: string
+      username:
+        type: string
+    required:
+    - email
+    - name
+    - password
+    type: object
+  boilerplate-learner_internal_application_auth.LoginRequest:
+    properties:
+      login:
+        type: string
+      password:
+        type: string
+    required:
+    - login
+    - password
+    type: object
+  boilerplate-learner_internal_application_auth.RoleRequest:
+    properties:
+      name:
+        type: string
+      permission_ids:
+        items:
+          type: integer
+        type: array
+    required:
+    - name
+    type: object
+  boilerplate-learner_internal_application_auth.UpdateUserRequest:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      role_ids:
+        items:
+          type: integer
+        type: array
+      status:
+        type: string
+      username:
+        type: string
+    type: object
+  boilerplate-learner_internal_application_dispositivos.BrandRequest:
+    properties:
+      nombre:
+        type: string
+    required:
+    - nombre
+    type: object
+  boilerplate-learner_internal_application_dispositivos.CreateRequest:
+    properties:
+      brand_id:
+        type: integer
+      estado:
+        type: string
+      grupo:
+        type: string
+      imei:
+        type: string
+      model_id:
+        type: integer
+      numero:
+        type: string
+      observaciones:
+        type: string
+      serie:
+        type: string
+      synergy_res_id:
+        type: integer
+      trabajador_id:
+        type: integer
+    type: object
+  boilerplate-learner_internal_application_dispositivos.EntregarRequest:
+    properties:
+      trabajador_id:
+        type: integer
+    required:
+    - trabajador_id
+    type: object
+  boilerplate-learner_internal_application_dispositivos.ModelRequest:
+    properties:
+      brand_id:
+        type: integer
+      nombre:
+        type: string
+    required:
+    - brand_id
+    - nombre
+    type: object
+  boilerplate-learner_internal_application_dispositivos.UpdateRequest:
+    properties:
+      brand_id:
+        type: integer
+      estado:
+        type: string
+      grupo:
+        type: string
+      imei:
+        type: string
+      model_id:
+        type: integer
+      numero:
+        type: string
+      observaciones:
+        type: string
+      serie:
+        type: string
+      synergy_res_id:
+        type: integer
+      trabajador_id:
+        type: integer
+    type: object
+  boilerplate-learner_internal_application_telefonos.ActuacionRequest:
+    properties:
+      descripcion:
+        type: string
+    required:
+    - descripcion
+    type: object
+  boilerplate-learner_internal_application_telefonos.AsignarRequest:
+    properties:
+      trabajador_id:
+        type: integer
+    required:
+    - trabajador_id
+    type: object
+  boilerplate-learner_internal_application_telefonos.CreateRequest:
+    properties:
+      activo:
+        type: boolean
+      estado_telefonos_id:
+        type: integer
+      imei:
+        type: string
+      imei2:
+        type: string
+      linea:
+        type: string
+      marca:
+        type: string
+      modelo:
+        type: string
+      nplan:
+        type: string
+      numero:
+        type: string
+      observaciones:
+        type: string
+      operadora:
+        type: string
+      pin:
+        type: string
+      plan:
+        type: string
+      puk:
+        type: string
+      tipo:
+        type: string
+      tipologias_id:
+        type: integer
+      trabajador_id:
+        type: integer
+    type: object
+  boilerplate-learner_internal_application_telefonos.UpdateRequest:
+    properties:
+      activo:
+        type: boolean
+      estado_telefonos_id:
+        type: integer
+      imei:
+        type: string
+      imei2:
+        type: string
+      linea:
+        type: string
+      marca:
+        type: string
+      modelo:
+        type: string
+      nplan:
+        type: string
+      numero:
+        type: string
+      observaciones:
+        type: string
+      operadora:
+        type: string
+      pin:
+        type: string
+      plan:
+        type: string
+      puk:
+        type: string
+      tipo:
+        type: string
+      tipologias_id:
+        type: integer
+      trabajador_id:
+        type: integer
+    type: object
+  boilerplate-learner_internal_application_trabajadores.CreateRequest:
+    properties:
+      apellido:
+        type: string
+      cargo:
+        type: string
+      ciudad:
+        type: string
+      departamento:
+        type: string
+      dni:
+        type: string
+      email:
+        type: string
+      emp_stat:
+        type: string
+      estado:
+        type: string
+      fecha_incorporacion:
+        type: string
+      loc:
+        type: string
+      nombre:
+        type: string
+      observaciones:
+        type: string
+      synergy_res_id:
+        type: integer
+      telefono:
+        type: string
+      ubicacion:
+        type: string
+    required:
+    - nombre
+    type: object
+  boilerplate-learner_internal_application_trabajadores.UpdateRequest:
+    properties:
+      apellido:
+        type: string
+      cargo:
+        type: string
+      ciudad:
+        type: string
+      departamento:
+        type: string
+      dni:
+        type: string
+      email:
+        type: string
+      emp_stat:
+        type: string
+      estado:
+        type: string
+      fecha_baja:
+        type: string
+      fecha_incorporacion:
+        type: string
+      loc:
+        type: string
+      nombre:
+        type: string
+      observaciones:
+        type: string
+      synergy_res_id:
+        type: integer
+      telefono:
+        type: string
+      ubicacion:
+        type: string
+    type: object
+host: localhost:8091
+info:
+  contact: {}
+  description: Backend Go/Gin con Clean Architecture + DDD
+  title: Learner Learner API
+  version: "1.0"
+paths:
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Credenciales
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_auth.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Login
+      tags:
+      - auth
+  /auth/logout:
+    post:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Logout
+      tags:
+      - auth
+  /auth/me:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get current user
+      tags:
+      - auth
+    patch:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Update current user profile
+      tags:
+      - auth
+  /auth/me/avatar:
+    post:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Upload avatar
+      tags:
+      - auth
+  /auth/refresh:
+    post:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Refresh tokens
+      tags:
+      - auth
+  /dashboard:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get dashboard stats
+      tags:
+      - dashboard
+  /dispositivos:
+    get:
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Per page
+        in: query
+        name: per_page
+        type: integer
+      - description: Search
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: List dispositivos
+      tags:
+      - dispositivos
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Dispositivo data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_dispositivos.CreateRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Create dispositivo
+      tags:
+      - dispositivos
+  /dispositivos/{id}:
+    delete:
+      parameters:
+      - description: Dispositivo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "204":
+          description: No Content
+      security:
+      - BearerAuth: []
+      summary: Delete dispositivo
+      tags:
+      - dispositivos
+    get:
+      parameters:
+      - description: Dispositivo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get dispositivo by ID
+      tags:
+      - dispositivos
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Dispositivo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Dispositivo data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_dispositivos.UpdateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Update dispositivo
+      tags:
+      - dispositivos
+  /dispositivos/{id}/entregar:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Dispositivo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Entrega
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_dispositivos.EntregarRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Entregar dispositivo a trabajador
+      tags:
+      - dispositivos
+  /dispositivos/marcas:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: List marcas de dispositivos
+      tags:
+      - dispositivos
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Marca
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_dispositivos.BrandRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Create marca
+      tags:
+      - dispositivos
+  /dispositivos/marcas/{id}:
+    delete:
+      parameters:
+      - description: Brand ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "204":
+          description: No Content
+      security:
+      - BearerAuth: []
+      summary: Delete marca
+      tags:
+      - dispositivos
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Brand ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Marca
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_dispositivos.BrandRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Update marca
+      tags:
+      - dispositivos
+  /dispositivos/modelos:
+    get:
+      parameters:
+      - description: Brand ID
+        in: query
+        name: brand_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: List modelos de dispositivos
+      tags:
+      - dispositivos
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Modelo
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_dispositivos.ModelRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Create modelo
+      tags:
+      - dispositivos
+  /dispositivos/modelos/{id}:
+    delete:
+      parameters:
+      - description: Model ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "204":
+          description: No Content
+      security:
+      - BearerAuth: []
+      summary: Delete modelo
+      tags:
+      - dispositivos
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Model ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Modelo
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_dispositivos.ModelRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Update modelo
+      tags:
+      - dispositivos
+  /permissions:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: List permissions
+      tags:
+      - permissions
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Permission data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_auth.CreatePermissionRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Create permission
+      tags:
+      - permissions
+  /permissions/{id}:
+    delete:
+      parameters:
+      - description: Permission ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - BearerAuth: []
+      summary: Delete permission
+      tags:
+      - permissions
+  /roles:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: List roles
+      tags:
+      - roles
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Role data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_auth.RoleRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Create role
+      tags:
+      - roles
+  /roles/{id}:
+    delete:
+      parameters:
+      - description: Role ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - BearerAuth: []
+      summary: Delete role
+      tags:
+      - roles
+    get:
+      parameters:
+      - description: Role ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get role by ID
+      tags:
+      - roles
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Role ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Role data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_auth.RoleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Update role
+      tags:
+      - roles
+  /telefonos:
+    get:
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Per page
+        in: query
+        name: per_page
+        type: integer
+      - description: Search
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: List teléfonos
+      tags:
+      - telefonos
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Teléfono data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_telefonos.CreateRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Create teléfono
+      tags:
+      - telefonos
+  /telefonos/{id}:
+    delete:
+      parameters:
+      - description: Teléfono ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "204":
+          description: No Content
+      security:
+      - BearerAuth: []
+      summary: Delete teléfono
+      tags:
+      - telefonos
+    get:
+      parameters:
+      - description: Teléfono ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get teléfono by ID
+      tags:
+      - telefonos
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Teléfono ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Teléfono data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_telefonos.UpdateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Update teléfono
+      tags:
+      - telefonos
+  /telefonos/{id}/actuaciones:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Teléfono ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Actuación
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_telefonos.ActuacionRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Crear actuación en teléfono
+      tags:
+      - telefonos
+  /telefonos/{id}/asignar:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Teléfono ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Asignación
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_telefonos.AsignarRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Asignar teléfono a trabajador
+      tags:
+      - telefonos
+  /telefonos/{id}/desactivar:
+    post:
+      parameters:
+      - description: Teléfono ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Desactivar teléfono
+      tags:
+      - telefonos
+  /telefonos/actuaciones/{id}:
+    delete:
+      parameters:
+      - description: Actuación ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "204":
+          description: No Content
+      security:
+      - BearerAuth: []
+      summary: Eliminar actuación
+      tags:
+      - telefonos
+  /telefonos/estados:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: List estados de teléfono
+      tags:
+      - telefonos
+  /telefonos/tipologias:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: List tipologías
+      tags:
+      - telefonos
+  /trabajadores:
+    get:
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Per page
+        in: query
+        name: per_page
+        type: integer
+      - description: Search
+        in: query
+        name: search
+        type: string
+      - description: Estado activo
+        in: query
+        name: activo
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: List trabajadores
+      tags:
+      - trabajadores
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Trabajador data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_trabajadores.CreateRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Create trabajador
+      tags:
+      - trabajadores
+  /trabajadores/{id}:
+    delete:
+      parameters:
+      - description: Trabajador ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "204":
+          description: No Content
+      security:
+      - BearerAuth: []
+      summary: Delete trabajador
+      tags:
+      - trabajadores
+    get:
+      parameters:
+      - description: Trabajador ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get trabajador by ID
+      tags:
+      - trabajadores
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Trabajador ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Trabajador data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_trabajadores.UpdateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Update trabajador
+      tags:
+      - trabajadores
+  /trabajadores/{id}/dar-de-baja:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Trabajador ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Dar de baja a un trabajador
+      tags:
+      - trabajadores
+  /users:
+    get:
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Per page
+        in: query
+        name: per_page
+        type: integer
+      - description: Search
+        in: query
+        name: search
+        type: string
+      - description: Status
+        in: query
+        name: status
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: List users
+      tags:
+      - users
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: User data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_auth.CreateUserRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Create user
+      tags:
+      - users
+  /users/{id}:
+    delete:
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - BearerAuth: []
+      summary: Delete user
+      tags:
+      - users
+    get:
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get user by ID
+      tags:
+      - users
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: User data
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/boilerplate-learner_internal_application_auth.UpdateUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Update user
+      tags:
+      - users
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

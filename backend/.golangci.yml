@@ -1,0 +1,73 @@
+version: "2"
+
+linters:
+  default: none
+  enable:
+    - staticcheck   # bugs, APIs incorrectas, simplificaciones (incluye gosimple)
+    - errcheck      # errores no comprobados
+    - unused        # variables, funciones y tipos sin usar
+    - govet         # análisis estático del compilador
+    - ineffassign   # asignaciones que nunca se usan
+    - bodyclose     # http.Response.Body no cerrado
+    - gocritic      # bugs, rendimiento y estilo
+    - gosec         # problemas de seguridad
+    - depguard      # límites de dependencia entre capas (DDD / clean arch)
+
+  settings:
+    govet:
+      enable-all: true
+      disable:
+        - fieldalignment  # demasiado pedante para esta base de código
+        - shadow          # `if err := f(); err != nil` es idiomático en Go
+    errcheck:
+      exclude-functions:
+        - (io.Closer).Close
+        - (*os.File).Close
+        - (*mime/multipart.File).Close
+    gosec:
+      excludes:
+        - G115  # conversión int → uint (falsos positivos habituales)
+        - G124  # http.Cookie.Secure es config-driven (dev vs prod); csrftoken debe ser legible por JS
+    depguard:
+      rules:
+        # El dominio es Go puro: sin ORM, sin framework web, sin transporte,
+        # y nunca depende de application ni de infrastructure.
+        domain:
+          files:
+            - "**/internal/domain/**"
+          deny:
+            - pkg: gorm.io
+              desc: "el dominio no puede depender del ORM"
+            - pkg: github.com/gin-gonic/gin
+              desc: "el dominio no puede depender del framework web"
+            - pkg: net/http
+              desc: "el dominio debe ser neutral al transporte"
+            - pkg: boilerplate-learner/internal/infrastructure
+              desc: "el dominio no puede depender de infrastructure"
+            - pkg: boilerplate-learner/internal/application
+              desc: "el dominio no puede depender de application"
+        # La capa de aplicación orquesta el dominio tras puertos: sin framework
+        # web, sin transporte, y nunca importa infrastructure.
+        application:
+          files:
+            - "**/internal/application/**"
+          deny:
+            - pkg: github.com/gin-gonic/gin
+              desc: "la capa de aplicación no puede depender del framework web"
+            - pkg: net/http
+              desc: "la capa de aplicación debe ser neutral al transporte"
+            - pkg: boilerplate-learner/internal/infrastructure
+              desc: "la capa de aplicación solo define puertos; infrastructure los implementa"
+        # infrastructure/http no debe conocer los detalles de persistencia.
+        http:
+          files:
+            - "**/internal/infrastructure/http/**"
+          deny:
+            - pkg: gorm.io
+              desc: "los handlers no hablan con el ORM; usan casos de uso"
+            - pkg: boilerplate-learner/internal/infrastructure/persistence
+              desc: "los handlers no dependen de persistence"
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
