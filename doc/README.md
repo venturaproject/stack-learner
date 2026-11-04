@@ -1,21 +1,20 @@
-# Learner — documentación
+# Learner — documentation
 
-![Learner — plataforma de aprendizaje multi-organización](header.png)
+![Learner — multi-organization learning platform](header.png)
 
-Esta carpeta reúne la página de GitHub Pages y documentación de producto y técnica.
-La guía de desarrollo y puesta en marcha está en el [README principal](../README.md).
+This directory contains the GitHub Pages landing page and product and technical
+documentation. For development setup, see the [main README](../README.md).
 
-## Documentos
+## Documents
 
-- [Página del proyecto](index.html) — landing estática publicada en GitHub Pages.
-- [Alcance del producto](product.md) — funcionalidades, personas, permisos y trabajo pendiente.
-- [Arquitectura](architecture.md) — capas y organización del backend.
-- [Referencia de arquitectura](architecture-reference.md) — decisiones y compromisos actuales.
-- [DDD, arquitectura hexagonal y SOLID](solid-ddd-hexagonal.md) — principios y criterios de diseño.
+- [Project landing page](index.html) — static site published on GitHub Pages.
+- [Product scope](product.md) — features, roles, permissions, and planned work.
+- [Architecture](architecture.md) — backend layers and organization.
+- [Architecture reference](architecture-reference.md) — current decisions and trade-offs.
+- [DDD, hexagonal architecture, and SOLID](solid-ddd-hexagonal.md) — design principles and criteria.
 
-## Publicación
+## Publishing
 
-GitHub Actions publica el contenido de esta carpeta en
+GitHub Pages publishes this directory at
 [venturaproject.github.io/stack-learner](https://venturaproject.github.io/stack-learner/).
-El workflow se ejecuta al actualizar `doc/` en `main` o manualmente desde la pestaña
-Actions del repositorio.
+Updates to `doc/` on `main` are mirrored to the Pages branch by GitHub Actions.
