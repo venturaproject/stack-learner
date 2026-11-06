@@ -58,6 +58,9 @@ outside the LMS scope; these will be replaced or removed over time.
 
 Requirements: Docker and Docker Compose.
 
+Development containers do not restart automatically when Docker or your computer starts.
+Start them explicitly with `make up`; stop them with `make down`.
+
 ```bash
 make setup
 make up

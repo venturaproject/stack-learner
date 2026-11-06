@@ -16,7 +16,7 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-    restart: unless-stopped
+    restart: "no"
 
   redis:
     image: redis:7-alpine
@@ -29,7 +29,7 @@ services:
       interval: 5s
       timeout: 3s
       retries: 10
-    restart: unless-stopped
+    restart: "no"
 
   backend:
     build:
@@ -68,7 +68,7 @@ services:
       timeout: 3s
       retries: 10
       start_period: 20s
-    restart: unless-stopped
+    restart: "no"
 
   frontend:
     build:
@@ -92,7 +92,7 @@ services:
       timeout: 3s
       retries: 10
       start_period: 30s
-    restart: unless-stopped
+    restart: "no"
 
   nginx:
     build:
@@ -106,7 +106,7 @@ services:
         condition: service_healthy
       backend:
         condition: service_healthy
-    restart: unless-stopped
+    restart: "no"
     healthcheck:
       test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1/api/health && wget -q --spider http://127.0.0.1/admin/learning"]
       interval: 10s
